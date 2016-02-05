@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Jap_names</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		var trace = function(o){ console.log(o); };
+		// 
+		var letters = [
+			{l: 'A' , t: 'KA'},
+			{l: 'B' , t: 'ZU'},
+			{l: 'C' , t: 'MI'},
+			{l: 'D' , t: 'TE'},
+			{l: 'E' , t: 'KU'},
+			{l: 'F' , t: 'LU'},
+			{l: 'G' , t: 'JI'},
+			{l: 'H' , t: 'RI'},
+			{l: 'I' , t: 'KI'},
+			{l: 'J' , t: 'ZUS'},
+			{l: 'K' , t: 'ME'},
+			{l: 'L' , t: 'TA'},
+			{l: 'M' , t: 'RIN'},
+			{l: 'N' , t: 'TO'},
+			{l: 'O' , t: 'MO'},
+			{l: 'P' , t: 'NO'},
+			{l: 'Q' , t: 'KE'},
+			{l: 'R' , t: 'SHI'},
+			{l: 'S' , t: 'ARI'},
+			{l: 'T' , t: 'CHI'},
+			{l: 'U' , t: 'DO'},
+			{l: 'V' , t: 'RU'},
+			{l: 'W' , t: 'MEI'},
+			{l: 'X' , t: 'NA'},
+			{l: 'Y' , t: 'FU'},
+			{l: 'Z' , t: 'ZI'},
+		];
+		var getTranslation = function (l) {
+			var r = '#';
+			for(var n = 0; n < letters.length; n++) {
+				if(letters[n].l === l) {
+					r = letters[n].t;
+					break;
+				}
+			}
+			return r;
+		};
+		// 
+		$('input').on('keyup paste', function(ev){
+			var input = this;
+			if(t != undefined || t != null)
+				delete t;
+			var t = setTimeout(function(){
+				var v = $(input).val().toUpperCase().split('');
+				trace(v)
+				var t = '';
+				for(var n = 0; n < v.length; n++) {
+					t += getTranslation(v[n]) + ' - ';
+				}
+				$('h3').text(t.substr(0, t.length - 3));
+			}, 150);
+		});
+	});
+	</script>
+</head>
+<body>
+	<h5>Type your name, receive Japanese</h5>
+	<input type="text" name="name" value="" autocomplete="off">
+	<h3></h3>
+</body>
+</html>
