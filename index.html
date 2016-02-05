@@ -56,13 +56,12 @@
 				delete t;
 			var t = setTimeout(function(){
 				var v = $(input).val().toUpperCase().split('');
-				trace(v)
 				var t = '';
 				for(var n = 0; n < v.length; n++) {
 					t += getTranslation(v[n]) + ' - ';
 				}
 				$('h3').text(t.substr(0, t.length - 3));
-				$('h4').text(t.substr(0, t.length - 3).replace(/ - /gm, '').ucFirst());
+				$('h4').text(t.substr(0, t.length - 3).replace(/ - /gm, '').toLowerCase().ucFirst());
 			}, 150);
 		});
 	});
