@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>fun names</title>
+	<title>Jap_names</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script>
+	String.prototype.ucFirst = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+	}
 	$(document).ready(function(){
 		var trace = function(o){ console.log(o); };
 		// 
@@ -59,14 +62,14 @@
 					t += getTranslation(v[n]) + ' - ';
 				}
 				$('h3').text(t.substr(0, t.length - 3));
-				$('h4').text(t.substr(0, t.length - 3).replace(/ - /gm, ' '));
+				$('h4').text(t.substr(0, t.length - 3).replace(/ - /gm, '').ucFirst());
 			}, 150);
 		});
 	});
 	</script>
 </head>
 <body>
-	<h5>Type your name, get japanese</h5>
+	<h5>Type your name, receive Japanese</h5>
 	<input type="text" name="name" value="" autocomplete="off">
 	<h3></h3>
 	<h4></h4>
