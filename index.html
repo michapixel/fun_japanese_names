@@ -59,6 +59,7 @@
 					t += getTranslation(v[n]) + ' - ';
 				}
 				$('h3').text(t.substr(0, t.length - 3));
+				$('h4').text(t.substr(0, t.length - 3).replace(/ - /gm, ' '));
 			}, 150);
 		});
 	});
@@ -68,5 +69,6 @@
 	<h5>Type your name, get japanese</h5>
 	<input type="text" name="name" value="" autocomplete="off">
 	<h3></h3>
+	<h4></h4>
 </body>
 </html>
